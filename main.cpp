@@ -131,6 +131,14 @@ void Desenha(void)
     glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string9++);
   }        
   
+    glColor3f (0.0, 0.0, 0.0);
+    glRasterPos2f(82, -72);
+    char *string10 = "CHEGADA";
+  
+  while(*string10){
+    glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string10++);
+  }        
+  
 	// Troca cor corrente para azul
 	glColor3f(0.0f, 0.0f, 1.0f);
 
