@@ -275,7 +275,7 @@ glPopMatrix();
 	  glutSolidSphere(9, 250, 245);
 	glPopMatrix();
 
-////// nuvem 1
+
 
 //nuvem 2
 
@@ -308,8 +308,128 @@ glPopMatrix();
       glTranslatef (169.0f, 24.0f, -2.0f);
 	  glutSolidSphere(9, 250, 245);
 	glPopMatrix();
+	
+		//nuvem 3
+   glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef (-135.0f, -50.0f, 2.0f);
+	  glutSolidSphere(9, 250, 250);
+	glPopMatrix();
 
-
+   glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef (-130.0f, -55.0f, 0.0f);
+	  glutSolidSphere(9, 250, 245);
+	glPopMatrix();
+	
+   glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef (-127.0f, -50.0f, 1.0f);
+	  glutSolidSphere(9, 250, 245);
+	glPopMatrix();
+	
+	glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef (-115.0f, -50.0f, -0.0f);
+	  glutSolidSphere(9, 250, 245);
+	glPopMatrix();
+	
+   glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef (-116.0f, -48.0f, -2.0f);
+	  glutSolidSphere(9, 250, 245);
+	glPopMatrix();
+	
+   //nuvem 4
+      glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef ( 125.0f, 98.0f, 1.0f);
+	  glutSolidSphere(9, 250, 250);
+	glPopMatrix();
+	
+	glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef ( 121.0f, 95.0f, 1.0f);
+	  glutSolidSphere(9, 250, 245);
+	glPopMatrix();
+   
+   glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef ( 133.0f, 98.0f, 0.0f);
+	  glutSolidSphere(9, 250, 245);
+	glPopMatrix();
+	
+	 glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef ( 139.0f, 96.0f, -2.0f);
+	  glutSolidSphere(9, 250, 250);
+	glPopMatrix();
+	
+	 glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef ( 128.0f, 92.0f, 0.0f);
+	  glutSolidSphere(9, 250, 250);
+	 glPopMatrix();
+	
+	
+	//nuvem 5
+     glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef ( 100.0f, -100.0f, 1.0f);
+	  glutSolidSphere(9, 250, 250);
+	 glPopMatrix();
+	
+	 glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef ( 105.0f, -103.0f, 1.0f);
+	  glutSolidSphere(9, 250, 245);
+	 glPopMatrix();
+	 
+	 glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef ( 110.0f, -98.0f, 1.0f);
+	  glutSolidSphere(9, 250, 245);
+	 glPopMatrix();
+	
+	glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef ( 108.0f, -92.0f, 1.0f);
+	  glutSolidSphere(9, 250, 245);
+	 glPopMatrix();
+	
+	//nuvem 6
+    glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef (198.0f, -50.0f, 2.0f);
+	  glutSolidSphere(9, 250, 250);
+	glPopMatrix();
+	
+	 glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef (204.0f, -50.0f, 0.0f);
+	  glutSolidSphere(9, 250, 245);
+	glPopMatrix();
+	
+	glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef (200.0f, -48.0f, 1.0f);
+	  glutSolidSphere(9, 250, 245);
+	glPopMatrix();
+	
+	glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef (192.0f, -52.0f, 1.0f);
+	  glutSolidSphere(9, 250, 250);
+	glPopMatrix();
+	
+	glPushMatrix();
+	  glColor3f(1.0f, 1.0f, 1.0f);
+      glTranslatef (189.0f, -45.0f, 1.0f);
+	  glutSolidSphere(9, 250, 245);
+	glPopMatrix();
+	
+  
+	
 	// Execução dos comandos de desenho
 	glutSwapBuffers();
 }
