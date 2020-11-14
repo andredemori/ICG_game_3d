@@ -7,6 +7,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "glaux.h" 
 
 GLfloat angle, fAspect, rotX, rotY;
 GLdouble obsX, obsY, obsZ;
@@ -19,6 +20,28 @@ float escalaY;
 float escalaW;
 float escalaF;
 float escalaZ;
+
+// Variáveis globais
+
+GLuint idTextura;
+AUX_RGBImageRec *imagemTextura; 
+
+//Função para Carregar uma imagem .BMP
+AUX_RGBImageRec *LoadBMP(char *Filename){
+	FILE *File=NULL;
+	if (!Filename) {
+		return NULL;         
+	}
+	File=fopen(Filename,"r");	
+	if (File)	// Se o arquivo existe
+	{
+		fclose(File);			        
+		return auxDIBImageLoad(Filename);//Retorna a imagem
+	}
+	return NULL;			
+}
+
+
 
 // Função responsável pela especificação dos parâmetros de iluminação
 void DefineIluminacao (void)
@@ -57,8 +80,20 @@ void Desenha(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	DefineIluminacao();
+	
+		// Desenha um cubo no qual a textura é aplicada
+	glBegin ( GL_QUADS );
 
-    glColor3f (0.0, 0.0, 0.0);
+
+		// Face posterior
+		glTexCoord2f(1000.0f, 0.0f); glVertex3f(-300.0f, -200.0f, -10.0f);
+		glTexCoord2f(1000.0f, 10.0f); glVertex3f(-300.0f,  200.0f, -10.0f);
+		glTexCoord2f(0.0f, 10.0f); glVertex3f( 300.0f,  200.0f, -10.0f);
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 300.0f, -200.0f, -10.0f);
+
+	glEnd();
+
+    glColor3f (1.0, 1.0, 1.0);
     glRasterPos2f(-170, 125);
     char *string = "Comandos: ";
   
@@ -66,7 +101,7 @@ void Desenha(void)
     glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string++);
   }
   
-    glColor3f (0.0, 0.0, 0.0);
+    glColor3f (1.0, 1.0, 1.0);
     glRasterPos2f(-170, 110);
     char *string2 = "(D) Subir";
   
@@ -74,7 +109,7 @@ void Desenha(void)
     glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string2++);
   }
   
-    glColor3f (0.0, 0.0, 0.0);
+    glColor3f (1.0, 1.0, 1.0);
     glRasterPos2f(-170, 100);
     char *string3 = "(C) Descer";
   
@@ -82,7 +117,7 @@ void Desenha(void)
     glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string3++);
   }
   
-    glColor3f (0.0, 0.0, 0.0);
+    glColor3f (1.0, 1.0, 1.0);
     glRasterPos2f(-170, 90);
     char *string4 = "(Z) Pra frente";
   
@@ -91,7 +126,7 @@ void Desenha(void)
   }
   
   
-    glColor3f (0.0, 0.0, 0.0);
+    glColor3f (1.0, 1.0, 1.0);
     glRasterPos2f(-170, 80);
     char *string5 = "(X) Pra traz";
   
@@ -99,7 +134,7 @@ void Desenha(void)
     glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string5++);
   }  
 
-    glColor3f (0.0, 0.0, 0.0);
+    glColor3f (1.0, 1.0, 1.0);
     glRasterPos2f(-170, 70);
     char *string6 = "(LEFT_BUTTON) Zoon in";
   
@@ -107,7 +142,7 @@ void Desenha(void)
     glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string6++);
   }    
   
-    glColor3f (0.0, 0.0, 0.0);
+    glColor3f (1.0, 1.0, 1.0);
     glRasterPos2f(-170, 60);
     char *string7 = "(RIGHT_BUTTON) Zoon out";
   
@@ -115,7 +150,7 @@ void Desenha(void)
     glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string7++);
   }    
   
-    glColor3f (0.0, 0.0, 0.0);
+    glColor3f (1.0, 1.0, 1.0);
     glRasterPos2f(-170, 50);
     char *string8 = "(F2) Apagar";
   
@@ -123,7 +158,7 @@ void Desenha(void)
     glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string8++);
   }      
   
-    glColor3f (0.0, 0.0, 0.0);
+    glColor3f (1.0, 1.0, 1.0);
     glRasterPos2f(-170, 40);
     char *string9 = "(F1) Acender";
   
@@ -131,7 +166,7 @@ void Desenha(void)
     glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string9++);
   }        
   
-    glColor3f (0.0, 0.0, 0.0);
+    glColor3f (1.0, 1.0, 1.0);
     glRasterPos2f(82, -72);
     char *string10 = "CHEGADA";
   
@@ -139,19 +174,19 @@ void Desenha(void)
     glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *string10++);
   }        
   
-	// Troca cor corrente para azul
+	
 	glColor3f(0.0f, 0.0f, 1.0f);
 
-	// Desenha o teapot com a cor corrente (wire-frame)
+	
 	glPushMatrix();
 	  glColor3f(1.0f, 0.0f, 1.0f);
       glTranslatef ((GLfloat) escalaW, escalaF, 0.0f);
-	  glutSolidSphere(9, 250, 250);
+	  glutSolidSphere(8, 10, 20);
 	glPopMatrix();
 	
-	//sol
+	//lua
 	glPushMatrix();
-	  glColor3f(1.0f, 1.0f, 0.0f);
+	  glColor3f(1.0f, 1.0f, 1.0f);
       glTranslatef (190.0f, 100.0f, 0.0f);
 	  glutSolidSphere(20, 50, 50);
 	glPopMatrix();
@@ -464,7 +499,20 @@ void Inicializa(void)
         obsZ = 360;
         r, g, b = 1.0;
         especMaterial = 90;
+        
+        // Comandos de inicialização para textura
+	imagemTextura = LoadBMP("imagem.bmp");
+	glGenTextures(1, &idTextura);
+	glBindTexture(GL_TEXTURE_2D, idTextura);
+	glTexImage2D(GL_TEXTURE_2D, 0, 3, imagemTextura->sizeX, 
+			imagemTextura->sizeY, 0, GL_RGB, GL_UNSIGNED_BYTE,
+			imagemTextura->data);
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);	
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+	glEnable(GL_TEXTURE_2D);    
 }
+
+
 
 
 // Função usada para especificar a posição do observador virtual
@@ -635,4 +683,7 @@ void keyboard(unsigned char key, int x, int y){
 	break;
   }
 }
+
+
+
 

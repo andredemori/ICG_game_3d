@@ -1,7 +1,7 @@
 [Project]
 FileName=p2_3d.dev
 Name=p2_3d
-UnitCount=1
+UnitCount=2
 Type=0
 Ver=1
 ObjFiles=
@@ -12,13 +12,13 @@ ResourceIncludes=
 MakeIncludes=
 Compiler=
 CppCompiler=
-Linker=-lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32
+Linker=-lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32_@@_GLAUX.LIB_@@_
 IsCpp=1
 Icon=
 ExeOutput=
 ObjectOutput=
 OverrideOutput=0
-OverrideOutputName=
+OverrideOutputName=p2_3d.exe
 HostApplication=
 Folders=
 CommandLine=
@@ -27,7 +27,7 @@ CustomMakefile=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=
+CompilerSettings=0000000000000000000000
 
 [Unit1]
 FileName=main.cpp
@@ -56,4 +56,13 @@ OriginalFilename=
 ProductName=
 ProductVersion=
 AutoIncBuildNr=0
+
+[Unit2]
+FileName=GLAUX.LIB
+Folder=p2_3d
+Compile=0
+Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
 
